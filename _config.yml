@@ -4,12 +4,14 @@
 
 # Site
 title: Sailor's Blog
-subtitle:
-description:
+subtitle: Stay Hungry,Stay Foolish
+description: Stay Hungry,Stay Foolish
 keywords:
 author: Sailor
 language: zh-Hans
 timezone:
+email: yqsailor@gmail.com
+
 # 头像
 avatar: /images/avatar.jpeg
 # favicon
@@ -97,4 +99,12 @@ search:
   format: html
   limit: 10000
 
+# Plugins: http://hexo.io/plugins/
+plugins: hexo-generate-feed
 
+# hexo-symbols-count-time 统计字数
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
