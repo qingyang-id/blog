@@ -21,6 +21,7 @@ sudo apt install python3-pip
 yum install python-setuptools
 easy_install pip
 ```
+<!--more-->
 
 # 安装Shadowsocks
 
