@@ -218,3 +218,17 @@ Hexo 中的图标使用的是 [Font Awesome](http://fontawesome.io/) ，所以�
 <h5 style="color:#f63;"><i>最后要说的是：</i></h5>
 <p id="div-border-top-green"><i>[博客源码](https://github.com/yqsailor/blog) ， 欢迎 star
 </i></p>
+
+## 常见问题4
+
+Hexo 中使用markdown语法的绝对图片路径在首页无法展示，可改用标签插件语法：
+配置_config.yml
+```
+post_asset_folder: true
+```
+将_config.yml文件中的配置项post_asset_folder设为true后，执行命令$ hexo new post_name，在source/_posts中会生成文章post_name.md和同名文件夹post_name。将图片资源放在post_name中，文章就可以使用相对路径引用图片资源了。
+
+图片*_posts/post_name/image.jpg*,可通过如下方式访问
+```
+{% asset_img image.jpg This is an image %}
+```
