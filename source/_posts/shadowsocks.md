@@ -2,7 +2,7 @@
 title: Linux 搭建 Shadowsocks VPN服务
 date: 2019-06-18 17:00:01
 categories: 工具
-tags: [Shadowsocks]
+tags: [Shadowsocks, Linux]
 ---
 # 前言
 

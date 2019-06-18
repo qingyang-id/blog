@@ -2,7 +2,7 @@
 title: Linux 搭建 Nginx
 date: 2019-06-18 11:29:29
 categories: 工具
-tags: [Nginx]
+tags: [Nginx, Linux]
 ---
 Nginx 读作 **engine x**， 是一个免费的、开源的、高性能的 HTTP 和反向代理服务，主要负责负载一些访问量比较大的站点。
 
