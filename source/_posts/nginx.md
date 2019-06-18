@@ -1,6 +1,6 @@
 ---
 title: Linux 搭建 Nginx
-date: 2019-06-18 11:29:29
+date: 2019-06-17 11:29:29
 categories: 工具
 tags: [Nginx, Linux]
 ---
