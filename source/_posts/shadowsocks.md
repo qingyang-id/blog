@@ -13,13 +13,23 @@ tags: [Shadowsocks, Linux]
 ## Debian/Ubuntu下使用
 
 本教程使用Python 3为载体，因Python 3对应的包管理器pip3并未预装，首先安装pip3：
+
+Ubuntu16 安装pip
 ```
 sudo apt install python3-pip
 ```
+
+Ubuntu18 安装pip
+```
+sudo apt-get update
+
+sudo apt-get install python3-pip
+```
+
 ## Centos下使用
 ```
-yum install python-setuptools
-easy_install pip
+sudo yum install -y epel-release
+sudo yum install python3-pip
 ```
 <!--more-->
 
@@ -28,7 +38,7 @@ easy_install pip
 因Shadowsocks作者不再维护pip中的Shadowsocks（定格在了2.8.2），我们使用下面的命令来安装最新版的Shadowsocks：
 
 ```bash
-pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip
+sudo pip3 install --upgrade git+https://github.com/shadowsocks/shadowsocks.git@master
 ```
 
 安装完成后可以使用下面这个命令查看Shadowsocks版本：
@@ -95,7 +105,7 @@ ssserver -c /etc/shadowsocks/config.json
 ```
 在Shadowsocks客户端添加服务器，如果你使用的是我提供的那个配置文件的话，地址为服务器外网IP，端口号为8388，加密方法为chacha20，密码为你设置的密码。然后设置客户端使用全局模式，浏览器登录Google试试应该能直接打开了。
 
-这时浏览器登录http://ip138.com/就会显示Shadowsocks服务器的IP啦！
+这时浏览器访问[ip138](http://ip138.com)就会显示Shadowsocks服务器的IP啦！
 
 测试完毕，按Ctrl + C关闭Shadowsocks。
 
@@ -105,7 +115,7 @@ ssserver -c /etc/shadowsocks/config.json
 新建Shadowsocks管理文件
 
 ```Bash
-sudo nano /etc/systemd/system/shadowsocks-server.service
+sudo vim /etc/systemd/system/shadowsocks-server.service
 ```
 复制粘贴：
 ```bash
@@ -121,7 +131,7 @@ Restart=on-abort
 WantedBy=multi-user.target
 ```
 
-Ctrl + O保存文件，Ctrl + X退出。
+保存文件并退出。
 
 启动Shadowsocks：
 
@@ -138,7 +148,7 @@ sudo systemctl enable shadowsocks-server
 查看Shadowsocks状态：
 
 ```Bash
-sudo systemctl status shadowsocks
+sudo systemctl status shadowsocks-server
 ```
 
 至此，Shadowsock服务器端的基本配置已经全部完成了！
