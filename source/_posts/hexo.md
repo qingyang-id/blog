@@ -24,7 +24,7 @@ comments: false
 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 [标签插件](https://hexo.io/zh-cn/docs/tag-plugins.html) 来快速的插入特定形式的内容。
 
 基于 Hexo 这个优秀的博客框架，很多优秀的开发者奉献出了它们基于 Hexo 开发的[主题](https://hexo.io/themes/)。
-[NexT](http://theme-next.iissnan.com/) 因其 <span id="yu-1">精于心，简于形</span> 的风格，一直被广大用户所喜爱。
+[NexT](http://theme-next.iissnan.com/) 因其 {% label info@精于心，简于形 %} 的风格，一直被广大用户所喜爱。
 
 <!-- more -->
 
@@ -112,11 +112,11 @@ $ git clone https://github.com/theme-next/hexo-theme-next themes/next
 等待下载完成。
 {% note warning %}
 在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。
-  我们将前者称为 **站点配置文件**，后者称为 **主题配置文件**
+  我们将前者称为<span id="inline-green">站点配置文件</span>，后者称为<span id="inline-purple">主题配置文件</span>
   {% endnote %}
 
 ## 2、启用 NexT 主题
-打开 **站点配置文件** ，找到 theme 字段，并将其值更改为 next 。
+打开<span id="inline-green">站点配置文件</span>，找到 theme 字段，并将其值更改为 next 。
 到此， NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前，我们最好使用 `hexo clean` 来清除 Hexo 的缓存。
 
 ## 3、验证主题
@@ -148,7 +148,7 @@ INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 npm install hexo-generator-searchdb --save
 ```
 
-2. 编辑 站点配置文件，新增以下内容到任意位置：
+2. 编辑<span id="inline-green">站点配置文件</span>，新增以下内容到任意位置：
 ```
 search:
   path: search.xml
@@ -157,7 +157,7 @@ search:
   limit: 10000
 ```
 
-3. 编辑 主题配置文件，启用本地搜索功能：
+3. 编辑<span id="inline-purple">主题配置文件</span>，启用本地搜索功能：
 ```
 local_search:
   enable: true
@@ -215,23 +215,98 @@ git clone <github-url> source\lib\<plugin-name>
 }
 ```
 
-# 修改作者头像（圆形）
-文件`\themes\next\source\css\_common\components\sidebar\sidebar-author.styl`中`.site-author-image` 追加以下样式
+# 自定义span label标签样式
+自带的`label`不好看，自带写法如下
+```
+{% labe info@标签文字 %}
+```
+
+找到文件 themes\next\source\css\_custom\custom.styl ，添加如下 css 样式：
 
 ```css
-.site-author-image {
-  /* 头像圆形 */
-  border-radius: 80px;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  box-shadow: inset 0 -1px 0 #333sf;
+// 颜色块-黄
+span#inline-yellow {
+  display:inline;
+  padding:.2em .6em .3em;
+  font-size:80%;
+  font-weight:bold;
+  line-height:1;
+  color:#fff;
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:baseline;
+  border-radius:0;
+  background-color: #f0ad4e;
+}
+
+// 颜色块-绿
+span#inline-green {
+  display:inline;
+  padding:.2em .6em .3em;
+  font-size:80%;
+  font-weight:bold;
+  line-height:1;
+  color:#fff;
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:baseline;
+  border-radius:0;
+  background-color: #5cb85c;
+}
+
+// 颜色块-蓝
+span#inline-blue {
+  display:inline;
+  padding:.2em .6em .3em;
+  font-size:80%;
+  font-weight:bold;
+  line-height:1;
+  color:#fff;
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:baseline;
+  border-radius:0;
+  background-color: #2780e3;
+}
+
+// 颜色块-紫
+span#inline-purple {
+  display:inline;
+  padding:.2em .6em .3em;
+  font-size:80%;
+  font-weight:bold;
+  line-height:1;
+  color:#fff;
+  text-align:center;
+  white-space:nowrap;
+  vertical-align:baseline;
+  border-radius:0;
+  background-color: #9954bb;
 }
 ```
 
-# 修改文章底部的那个带#号的标签
-编辑 主题配置文件
+# 修改作者头像为圆形和鼠标悬浮旋转效果
 
+修改<span id="inline-purple">主题配置文件</span>
+
+```bash
+avatar:
+  # In theme directory (source/images): /images/avatar.gif
+  # In site directory (source/uploads): /uploads/avatar.gif
+  # You can also use other linking images.
+  url: /images/avatar.jpeg # 头像地址
+  # If true, the avatar would be dispalyed in circle.
+  rounded: true # 头像设置为圆形
+  # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
+  opacity: 1
+  # If true, the avatar would be rotated with the cursor.
+  rotated: true # 鼠标悬浮旋转
 ```
+
+# 修改文章底部的那个带#号的标签
+编辑<span id="inline-purple">主题配置文件</span>
+
+```bash
 tag_icon: true
 ```
 
@@ -247,7 +322,7 @@ tag_icon: true
 
 {% asset_img images/baidu_analytics.png %}
 
-3. 编辑<span class="label label-info">主题配置文件</span>， 修改字段 baidu_analytics，值设置成你的百度统计脚本 id。
+3. 编辑<span id="inline-purple">主题配置文件</span>， 修改字段 baidu_analytics，值设置成你的百度统计脚本 id。
 
 # 发布到GitHub
 
@@ -265,7 +340,7 @@ $ npm install hexo-deployer-git --save
 ```
 
 ## 配置发布信息
-修改主题配置文件中的仓库信息
+修改<span id="inline-purple">主题配置文件</span>中的仓库信息
 ``` bash
 deploy:
   type: git
@@ -346,7 +421,7 @@ post_asset_folder: true
 ```
 将_config.yml文件中的配置项post_asset_folder设为true后，执行命令$ hexo new post_name，在source/_posts中会生成文章post_name.md和同名文件夹post_name。将图片资源放在post_name中，文章就可以使用相对路径引用图片资源了。
 
-图片*_posts/post_name/image.jpg*,可通过如下方式访问
+图片`_posts/post_name/image.jpg`,可通过如下方式访问
 ```
 {% asset_img image.jpg This is an image %}
 ```
