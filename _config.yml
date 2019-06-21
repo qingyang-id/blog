@@ -8,7 +8,7 @@ subtitle: Stay Hungry,Stay Foolish
 description: Stay Hungry,Stay Foolish
 keywords:
 author: Sailor
-language: zh-Hans
+language: zh-CN
 timezone:
 email: yqsailor@gmail.com
 
@@ -108,3 +108,4 @@ symbols_count_time:
   time: true
   total_symbols: true
   total_time: true
+  exclude_codeblock: false

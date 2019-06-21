@@ -27,7 +27,9 @@ comments: false
 [NexT](http://theme-next.iissnan.com/) 因其 <span id="yu-1">精于心，简于形</span> 的风格，一直被广大用户所喜爱。
 
 <!-- more -->
+
 # 环境要求
+
 安装 Hexo 相当简单。然而在安装前，您必须检查电脑中是否已安装:
 
 > [Node.js](https://nodejs.org/en/)
@@ -62,8 +64,10 @@ $ nvm install latest
 ```
 
 执行完以后，重启命令行，执行命令 `node -v` ，如果出现版本号，那么 `Node.js` 就安装成功了。
-{% note warning %} 如果没有安装成功，那可能就是墙的原因。建议下载 `Node.js` 直接安装。 <a id="download" href="https://nodejs.org/en/download/"><i class="fa fa-download"></i><span> Download Now</span>
-</a>{% endnote %}
+{% note warning %} 
+如果没有安装成功，那可能就是墙的原因。建议下载 `Node.js` 直接安装。 <a id="download" href="https://nodejs.org/en/download/"><i class="fa fa-download"></i><span> Download Now</span>
+</a>
+{% endnote %}
 
 # 安装 Hexo
 
@@ -103,11 +107,13 @@ Hexo 将 source 文件夹中除 _posts 文件夹之外，开头命名为 _(下�
 
 依旧是在当前目录下，执行如下命令：
 ``` bash
-$ git clone https://github.com/iissnan/hexo-theme-next themes/next
+$ git clone https://github.com/theme-next/hexo-theme-next themes/next
 ```
 等待下载完成。
-{% note warning %}在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。
-  我们将前者称为 **站点配置文件**，后者称为 **主题配置文件**{% endnote %}
+{% note warning %}
+在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。
+  我们将前者称为 **站点配置文件**，后者称为 **主题配置文件**
+  {% endnote %}
 
 ## 2、启用 NexT 主题
 打开 **站点配置文件** ，找到 theme 字段，并将其值更改为 next 。
@@ -122,11 +128,15 @@ INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 
 此时即可使用浏览器访问 http://localhost:4000/ ，检查站点是否正确运行。
 
-{% note success %} 当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse{% endnote %}
+{% note success %}
+当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse
+{% endnote %}
 {% asset_img images/hexo-next-theme.png NexT Muse theme %}
 现在，我们已经成功安装并启用了 NexT 主题。
 
-{% note primary %} 关于更多基本操作和基础知识，请查阅 [Hexo](https://hexo.io/zh-cn/) 与 [NexT](http://theme-next.iissnan.com/) 官方文档.{% endnote %}
+{% note primary %}
+关于更多基本操作和基础知识，请查阅 [Hexo](https://hexo.io/zh-cn/) 与 [NexT](http://theme-next.iissnan.com/) 官方文档.
+{% endnote %}
 
 # Local Search 配置
 
@@ -153,11 +163,85 @@ local_search:
   enable: true
 ```
 
+# 插件
+
+这些功能之前是使用修改源代码方式，现在可以使用 “包/插件引入 + 选项配置” 的方式激活该功能。
+
+> 插件路径定义在 themes\next\source\lib 目录下。
+
+| 功能 | 插件 | 引入方式 | 配置项 |
+| :-----  | :---- | :---- | :---- |
+|字数统计	           |  [hexo-symbols-count-time](https://github.com/theme-next/hexo-symbols-count-time) |	包 | heme.symbols_count_time |
+|图片浏览 | [theme-next-fancybox3](https://github.com/theme-next/theme-next-fancybox3)	| 插件 | theme.fancybox |
+|顶部进度条 | [theme-next-pace](https://github.com/theme-next/theme-next-pace)	| 插件 | theme.pace  |
+|leancloud访问计数	 | [leancloud-visitors](https://github.com/theme-next/hexo-leancloud-counter-security)	| 插件	| theme.leancloud_visitors |
+|canvas-nest线条动画	 | [canvas-nest](https://github.com/theme-next/theme-next-canvas-nest)	| 插件	| theme.canvas_nest |
+
+*1.引入方式*
+
+以包方式引入比较简单，使用 命令 npm install <package-name> -save 即可。
+
+以插件方式引入，在 `theme\next` 目录使用代码克隆命令。
+```
+git clone <github-url> source\lib\<plugin-name>
+```
+
+> canvas-next 将配置文件中颜色改为：0,0,0
+
+*2.进度条*
+
+进度条使用 [pace.js](https://github.hubspot.com/pace/) 插件，[点此](https://github.hubspot.com/pace/docs/welcome/) 查看每个配置的效果图。
+
+# 鼠标点击小红心的设置
+1. 将 [love.js](https://github.com/yqsailor/yqsailor.github.io/tree/master/js/love.js) 文件添加到 \themes\next\source\js 文件目录下。
+2. 找到 `\themes\next\layout\_layout.swing` 文件， 在文件的后面，`</body>` 标签之前 添加以下代码：
+```html
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+```
+
+# 修改文章内链接文本样式
+将链接文本设置为蓝色，鼠标划过时文字颜色加深，并显示下划线。
+找到文件 themes\next\source\css\_custom\custom.styl ，添加如下 css 样式：
+
+```css
+.post-body p a {
+  color: #0593d3;
+  border-bottom: none;
+  &:hover {
+    color: #0477ab;
+    text-decoration: underline;
+  }
+}
+```
+
+# 修改作者头像（圆形）
+文件`\themes\next\source\css\_common\components\sidebar\sidebar-author.styl`中`.site-author-image` 追加以下样式
+
+```css
+.site-author-image {
+  /* 头像圆形 */
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  box-shadow: inset 0 -1px 0 #333sf;
+}
+```
+
+# 修改文章底部的那个带#号的标签
+编辑 主题配置文件
+
+```
+tag_icon: true
+```
+
 # 百度统计
 
-{% note warning %} 注意： baidu_analytics 不是你的百度 id 或者 百度统计 id{% endnote %}
+{% note warning %}
+注意： baidu_analytics 不是你的百度 id 或者 百度统计 id
+{% endnote %}
 
-1. 登录 [百度统计](https://tongji.baidu.com)，定位到站点的代码获取页面
+1. 登录 [百度统计](https://tongji.baidu.com) ，定位到站点的代码获取页面
 
 2. 复制 hm.js? 后面那串统计脚本 id，如下图所示：
 
@@ -165,19 +249,8 @@ local_search:
 
 3. 编辑<span class="label label-info">主题配置文件</span>， 修改字段 baidu_analytics，值设置成你的百度统计脚本 id。
 
-# 右上角添加GitHub彩带和GitHub Corner
-
-提供两个获取样式的站点，[GitHub Ribbons](https://github.blog/2008-12-19-github-ribbons/)和[GitHub Corners](http://tholman.com/github-corners/)
-
-考虑到适配移动端适配，重叠于菜单按钮，我取的是 GitHub Corners 的右上角的样式。
-```html
-# 修改 https://your-url 、fill:#151513; 和 color:#fff;
-<a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-```
-
-粘贴样式代码至`themes\next\layout\_layout.swig`文件中`<div class="headband"></div>`下
-
 # 发布到GitHub
+
 ## 创建新仓库
 Github Pages分为两类，用户或组织主页，项目主页。
 
@@ -247,7 +320,7 @@ $ hexo deploy == hexo d
 ```
 author: yq
 email: yqsailor@gmail.com
-language: zh-Hans
+language: zh-CN
 ```
 
 ## 常见问题2
@@ -281,5 +354,6 @@ post_asset_folder: true
 
 
 <h5 style="color:#f63;"><i>最后要说的是：</i></h5>
-<p id="div-border-top-green"><i>[博客源码](https://github.com/yqsailor/blog) ， 欢迎 star
-</i></p>
+{% note success %} 
+[博客源码](https://github.com/yqsailor/blog)， 欢迎 star 
+{% endnote %}
